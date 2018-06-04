@@ -3,7 +3,10 @@ export default {
     dashboard: '首页',
     introduction: '简述',
     documentation: '文档',
+    guide: '引导页',
     permission: '权限测试页',
+    pagePermission: '页面权限',
+    directivePermission: '指令权限',
     icons: '图标',
     components: '组件',
     componentIndex: '介绍',
@@ -18,6 +21,8 @@ export default {
     countTo: 'CountTo',
     componentMixin: '小组件',
     backToTop: '返回顶部',
+    dragDialog: '拖拽 Dialog',
+    dragKanban: '可拖拽看板',
     charts: '图表',
     keyboardChart: '键盘图表',
     lineChart: '折线图',
@@ -32,8 +37,9 @@ export default {
     customTreeTable: '自定义树表',
     tab: 'Tab',
     form: '表单',
-    createForm: '创建表单',
-    editForm: '编辑表单',
+    createArticle: '创建文章',
+    editArticle: '编辑文章',
+    articleList: '文章列表',
     errorPages: '错误页面',
     page401: '401',
     page404: '404',
@@ -71,6 +77,10 @@ export default {
   permission: {
     roles: '你的权限',
     switchRoles: '切换权限'
+  },
+  guide: {
+    description: '引导页对于一些第一次进入项目的人很有用，你可以简单介绍下项目的功能。本 Demo 是基于',
+    button: '打开引导'
   },
   components: {
     documentation: '文档',
@@ -125,5 +135,10 @@ export default {
     change: '换肤',
     documentation: '换肤文档',
     tips: 'Tips: 它区别于 navbar 上的 theme-pick, 是两种不同的换肤方法，各自有不同的应用场景，具体请参考文档。'
+  },
+  tagsView: {
+    close: '关闭',
+    closeOthers: '关闭其它',
+    closeAll: '关闭所有'
   }
 }

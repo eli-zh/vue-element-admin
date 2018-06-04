@@ -3,7 +3,10 @@ export default {
     dashboard: 'Dashboard',
     introduction: 'Introduction',
     documentation: 'Documentation',
+    guide: 'Guide',
     permission: 'Permission',
+    pagePermission: 'Page Permission',
+    directivePermission: 'Directive Permission',
     icons: 'Icons',
     components: 'Components',
     componentIndex: 'Introduction',
@@ -18,6 +21,8 @@ export default {
     countTo: 'CountTo',
     componentMixin: 'Mixin',
     backToTop: 'BackToTop',
+    dragDialog: 'Drag Dialog',
+    dragKanban: 'Drag Kanban',
     charts: 'Charts',
     keyboardChart: 'Keyboard Chart',
     lineChart: 'Line Chart',
@@ -32,8 +37,9 @@ export default {
     customTreeTable: 'Custom TreeTable',
     tab: 'Tab',
     form: 'Form',
-    createForm: 'Create Form',
-    editForm: 'Edit Form',
+    createArticle: 'Create Article',
+    editArticle: 'Edit Article',
+    articleList: 'Article List',
     errorPages: 'Error Pages',
     page401: '401',
     page404: '404',
@@ -71,6 +77,10 @@ export default {
   permission: {
     roles: 'Your roles',
     switchRoles: 'Switch roles'
+  },
+  guide: {
+    description: 'The guide page is useful for some people who entered the project for the first time. You can briefly introduce the features of the project. Demo is based on ',
+    button: 'Show Guide'
   },
   components: {
     documentation: 'Documentation',
@@ -125,5 +135,10 @@ export default {
     change: 'Theme change',
     documentation: 'Theme documentation',
     tips: 'Tips: It is different from the theme-pick on the navbar is two different skinning methods, each with different application scenarios. Refer to the documentation for details.'
+  },
+  tagsView: {
+    close: 'Close',
+    closeOthers: 'Close Others',
+    closeAll: 'Close All'
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="tinymce-container editor-container">
+  <div class="tinymce-container editor-container" :class="{fullscreen:fullscreen}">
     <textarea class="tinymce-textarea" :id="tinymceId"></textarea>
     <div class="editor-custom-btn-container">
       <editorImage color="#1890ff" class="editor-upload-btn" @successCBK="imageSuccessCBK"></editorImage>
@@ -43,13 +43,15 @@ export default {
     return {
       hasChange: false,
       hasInit: false,
-      tinymceId: this.id || 'vue-tinymce-' + +new Date()
+      tinymceId: this.id || 'vue-tinymce-' + +new Date(),
+      fullscreen: false
     }
   },
   watch: {
     value(val) {
       if (!this.hasChange && this.hasInit) {
-        this.$nextTick(() => window.tinymce.get(this.tinymceId).setContent(val))
+        this.$nextTick(() =>
+          window.tinymce.get(this.tinymceId).setContent(val || ''))
       }
     }
   },
@@ -87,9 +89,14 @@ export default {
             editor.setContent(_this.value)
           }
           _this.hasInit = true
-          editor.on('NodeChange Change KeyUp', () => {
+          editor.on('NodeChange Change KeyUp SetContent', () => {
             this.hasChange = true
-            this.$emit('input', editor.getContent({ format: 'raw' }))
+            this.$emit('input', editor.getContent())
+          })
+        },
+        setup(editor) {
+          editor.on('FullscreenStateChanged', (e) => {
+            _this.fullscreen = e.state
           })
         }
         // 整合七牛上传
@@ -153,7 +160,10 @@ export default {
 
 <style scoped>
 .tinymce-container {
-  position: relative
+  position: relative;
+}
+.tinymce-container>>>.mce-fullscreen {
+  z-index: 10000;
 }
 .tinymce-textarea {
   visibility: hidden;
@@ -164,6 +174,10 @@ export default {
   right: 4px;
   top: 4px;
   /*z-index: 2005;*/
+}
+.fullscreen .editor-custom-btn-container {
+  z-index: 10000;
+  position: fixed;
 }
 .editor-upload-btn {
   display: inline-block;
